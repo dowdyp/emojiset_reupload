@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Salem Othman</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_css.css') }}" />
+    <link rel="stylesheet" href="home_css.css" />
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+    <!-- Link to our JS scripts -->
+    <script type="text/javascript" src="{{ url_for('static', filename='home.js') }}"></script>
+
+</head>
+
+<body id="myPage">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- Navbar -->
+    <!--Navigation bar (Navbar: Home, Team, Research, About*-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="opacity: 0.9;">
+
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home_page') }}">
+                        <em class="fa fa-home"></em> Home <span class="sr-only">(current)</span>
+                    </a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#teams"><em class="fa fa-group"></em> Team</a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <em class="fa fa-search"></em>
+                        Research
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('emojiset_mining') }}">Emojiset Mining</a>
+                        <a class="dropdown-item" href="{{ url_for('epidemiology') }}">Epidemiology</a>
+                    </div>
+                    </li>
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" href="">SOGOResearch</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        <em class="fa fa-envelope"></em> Contact <span class="sr-only">(current)</span>
+                    </a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><em class="fa fa-user-circle-o"></em> Profile </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+                        aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="{{ url_for('user.register') }}">Register</a>
+                        <a class="dropdown-item" href="{{ url_for('user.edit_user_profile') }}">My account</a>
+                        <a class="dropdown-item" href="{{ url_for('user.logout') }}">Log out</a>
+                    </div>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Image Header -->
+    <div class="w3-container w3-animate-opacity w3-theme-l1">
+        <br>
+        <div id="about">
+            <form class="w3-container w3-padding-16 w3-margin-bottom">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-section w3-justify">
+                            <div id="salem">
+                                <a href="https://wit.edu/directory/Salem-othman" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <img src="{{ url_for('static', filename='images/salem.png') }}" alt="Salem Othman"
+                                        style="width:100%;" class="w3-circle w3-hover-opacity">
+                                </a>
+                                <h4><strong>Salem Othman</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="salembio" class="col">
+                        <h2><strong>Biography</strong></h2>
+                        <h4>
+                            I am an assistant professor in the School of Computing and Data Science at the Wentworth
+                            Institute of Technology. I graduated with a Bachelor in Science in Computer Science from Omar Al-Mukhtar University,
+                            Beyda, Libya in 2001. After receiving my B.S., I worked as a database programmer for many clients. I received my Master’s
+                            degree in November 2006 from Sirte University, Libya. In 2018, I received my Ph.D. degree in Computer Science at Kent
+                            State University, Ohio, USA.
+                        </h4>
+                        <a href="https://scholar.google.com/citations?user=wR-qmhwAAAAJ&hl=en">
+                            <h5>🎓 My Google Scholar 🎓</h5>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div id="salemres" class="w3-section" style="width:100%;">
+                            <h2><strong>Research Interests</strong></h2>
+                            <h4>
+                                <ul>
+                                    <li>Computational Social Science</li>
+                                    <li>Social Network Analysis</li>
+                                    <li>Big Data Analytics</li>
+                                    <li>Machine learning</li>
+                                    <li>Natural language processing</li>
+                                    <li>Emojiset Mining</li>
+                                    <li>Epidemiology</li>
+                                </ul>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Publications -->
+    <div class="w3-container w3-theme-l2 w3-padding-16">
+        <div class="w3-center">
+            <h2><strong>Publications</strong></h2>
+            <br>
+        </div>
+        <div id="pubs" style="color:black">
+            <div class="row text-light">
+		<div>
+		    <h5 class="mb-0 font-weight-bold">MMR: Multiple Majority Rule Model with Bias</h5>
+		    <h6 class="font-italic mt-0">Corrales, S., Armas, E., King, M., Moorehead, J., Mourad, O., Othman, S. 2021 (pp. 207-214)</h6>
+            	</div>
+	    </div>
+	    <div class="row text-light">
+	    	<div>
+		    <h5 class="font-weight-bold mb-0">Automatic Extraction of Emojiset in Intelligent Computing</h5>
+		    <h6 class="font-italic mt-0">Roesch, P., Franco, C., Bernier, W., Othman, S., 2022 (pp.580-590)</h6>
+		</div>
+	    </div>
+		<div class="row text-light">
+			<div>
+				<h5 class="mb-0 font-weight-bold">Analyzing Music Genre Popularity</h5>
+				<h6 class="mt-0 font-italic">Fossi, J., Dzwonkowski, A., Othman, S., Intelligent Computing (pp. 284-294)</h6>
+			</div>
+		</div>
+		<div class="row text-light">
+			<div>
+				<h5 class="mb-0 font-weight-bold">Analyzing Co-occurrence Networks of Emojis on Twitter</h5>
+				<h6 class="mt-0 font-italic">Alsaif, H., Roesch, P., Othman, S., Intelligent Computing (pp. 80-96)</h6>
+			</div>
+		</div>
+        </div>
+    </div>
+
+    <!-- Work Row -->
+    <div id="boxes" class="w3-container w3-padding-16 w3-row-padding w3-theme-l2">
+
+        <div class="w3-center">
+            <h2><strong>Current Projects</strong></h2>
+        </div>
+        <div class="row" id="work">
+            <div class="col w3-half" style="width:55%">
+                <br>
+                <div class="w3-card w3-white">
+                    <div class="w3-container w3-center">
+                        <h3><strong>Emojiset Mining</strong></h3>
+                        <a href="javascript: void(0)" onclick="GoToEmojiset(); return false;">
+                            <img src="{{ url_for('static', filename='images/emoji.PNG') }}" alt="Emojiset Page"
+                                style="width:70%">
+                        </a>
+                    </div>
+                </div>
+                <div class="w3-justify">
+                    <h4>
+                        The Emojiset Mining team has created a website that can analyze emojisets from tweets
+                        and infer the
+                        meaning behind them.
+                        The code is capable of pulling tweets given various settings, and can either provide a
+                        small or large data
+                        set, which can be sent to users via email.
+                    </h4>
+                </div>
+            </div>
+
+            <div class="col w3-half" style="width:55%">
+                <br>
+                <div class="w3-card w3-white">
+                    <div class="w3-container w3-center">
+                        <h3><strong>Epidemiology</strong></h3>
+                        <a href="javascript: void(0)" onclick="GoToEpidemiology(); return false;">
+                        <img src="{{ url_for('static', filename='images/majority.PNG') }}" alt="Epidemiology Page"
+                            style="width:70%">
+                        </a>
+                    </div>
+                </div>
+                <div class="w3-justify">
+                    <h4>
+                        The team has implemented a new model named Biased Majority rule model which consists of a
+                        model that
+                        resembles how opinions spread through majorities.
+                        The model contains 3 states: Adopter, Rejector and Undecided and includes a bias
+                        parameter that can be
+                        modified by the user.
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Container -->
+    <div id="teams" class="w3-container w3-padding-16 w3-center w3-theme-l1">
+        <div data-spy="scroll" data-target="#navbar-scroll" data-offset="0">
+            <h1><strong>My Teams</strong></h1>
+        </div>
+        <p>Meet the team! (click their portrait to view their personal page)</p>
+        <br>
+        <!--replace "w3-container" with "container" for more compact look-->
+
+        <br>
+        <div class="row">
+            <!--Starts first row for the first 4 people-->
+
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/nikita-voronin-5a4a3b153/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/nikita.jpg') }}"
+                                    alt="Nikita Voronin" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Nikita Voronin</strong></h4>
+                            <p>Emojiset Mining</p>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/placeholder_face.png') }}"
+                                    alt="Caleb Franco" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Caleb Franco</strong></h4>
+                            <p>Emojiset Mining</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/adam-dzwonkowski/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/adam.jpg') }}"
+                                    alt="Adam Dzwonkowski" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Adam Dzwonkowski</strong></h4>
+                            <p>Emojiset Mining</p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/sancho-rodr%C3%ADguez-corrales-340891113/"
+                                target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/sancho.jpg') }}"
+                                    alt="Sancho Rodríguez" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Sancho Rodríguez</strong></h4>
+                            <p>Epidemiology</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Starts second row for 4 people-->
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/placeholder_face.png') }}"
+                                    alt="Martin King" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Martin King</strong></h4>
+                            <p>Epidemiology</p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/edwin-a-41b966129/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/placeholder_face.png') }}"
+                                    alt="Edwin Armas" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Edwin Armas</strong></h4>
+                            <p>Epidemiology</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/endicaushi/" target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/endi.jpg') }}"
+                                    alt="Endi Caushi" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Endi Caushi</strong></h4>
+                            <p>Emojiset Mining</p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/phillip-roesch-06205513b/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/phil.png') }}"
+                                    alt="Phillip Roesch" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Phillip Roesch</strong></h4>
+                            <p>Emojiset Mining</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Starts third row for 4 people-->
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/omarnassif/" target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/omar.jpg') }}"
+                                    alt="Omar Abou Nassif Mourad" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Omar Abou Nassif Mourad</strong></h4>
+                            <p>Epidemiology</p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/placeholder_face.png') }}"
+                                    alt="Joshua Moorehead" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Joshua Moorehead</strong></h4>
+                            <p>Epidemiology</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/garvin-gerard/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/placeholder_face.png') }}"
+                                    alt="Garvin Gerard" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Garvin Gerard</strong></h4>
+                            <p>Epidemiology</p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="w3-center">
+                            <a href="https://www.linkedin.com/in/hasaif/" target="_blank" rel="noopener noreferrer">
+                                <img id="face" src="{{ url_for('static', filename='images/hasan.png') }}"
+                                    alt="Hasan Saif" class="w3-circle w3-hover-opacity">
+                            </a>
+                            <h4><strong>Hasan Saif</strong></h4>
+                            <p>Emojiset Mining</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Starts fourth row for 4 people-->
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Katarina Petrovic" class="w3-circle w3-hover-opacity"></a><h4><strong>Katarina Petrovic</strong></h4><p>Big Data</p></div></div>
+        
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Lin, Xi Xi" class="w3-circle w3-hover-opacity"></a><h4><strong>Lin, Xi Xi</strong></h4><p>Game Theory</p></div></div>
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Silkin, Alex" class="w3-circle w3-hover-opacity"></a><h4><strong>Silkin, Alex</strong></h4><p>Game Theory</p></div></div>
+        
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Grant, Alex" class="w3-circle w3-hover-opacity"></a><h4><strong>Grant, Alex</strong></h4><p>Emojiset Mining</p></div></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Starts fifth row for 4 people-->
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col"><div class="w3-center" style="overflow: hidden"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/nick_r_m.jpg") }}" alt="Nick Ryan Melson" class="w3-circle w3-hover-opacity"></a><h4><strong>Nick Ryan Melson</strong></h4><p>Emojiset Mining</p></div></div>
+        
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Nova K Trauben" class="w3-circle w3-hover-opacity"></a><h4><strong>Nova K Trauben</strong></h4><p>Blockchain and Deepfake Videos</p></div></div> 
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Lute A Barnett" class="w3-circle w3-hover-opacity"></a><h4><strong>Lute A Barnett</strong></h4><p>Teaching Assistant</p></div></div>
+        
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Elise Destiny Ducharme" class="w3-circle w3-hover-opacity"></a><h4><strong>Elise Destiny Ducharme</strong></h4><p>Teaching Assistant</p></div></div>      
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Starts sixth row for 4 people-->
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col"><div class="w3-center"><a href="#" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Myint, Thurein" class="w3-circle w3-hover-opacity"></a><h4><strong>Myint, Thurein</strong></h4><p>Fellowship</p></div></div>
+        
+                    <div class="col"><div class="w3-center"><a href="https://linkedin.com/in/gyuan1" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Gao, Yuan" class="w3-circle w3-hover-opacity"></a><h4><strong>Gao, Yuan</strong></h4><p>AI Pedagogy</p></div></div>
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="row">
+                    <div class="col"><div class="w3-center"><a href="https://linkedin.com/in/dowdyp" rel="noopener noreferrer"><img id="face" src="{{ url_for("static", filename="images/placeholder_face.png") }}" alt="Dowdy, Parker" class="w3-circle w3-hover-opacity"></a><h4><strong>Dowdy, Parker</strong></h4><p>AI Pedagogy</p></div></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <div id="contact_modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Message sent</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for contacting us!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Container -->
+    <div class="w3-container w3-padding-64" id="contact">
+        <div data-spy="scroll" data-target="#navbar-scroll" data-offset="0">
+            <div class="w3-row">
+                <div class="w3-col m5">
+                    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span>
+                    </div>
+                    <h3>Address</h3>
+                    <p><em class="fa fa-map-marker w3-text-teal w3-xlarge"></em>  145 Dobbs Hall, 550 Huntington Ave,
+                        Boston, MA,
+                        02115, US</p>
+                    <p><em class="fa fa-phone w3-text-teal w3-xlarge"></em>  +1 617-989-4508</p>
+                    <p><em class="fa fa-envelope-o w3-text-teal w3-xlarge"></em>  othmans1@wit.edu</p>
+                </div>
+                <div class="w3-col m7">
+                    <form id="contact_form" class="w3-container w3-card-4 w3-padding-16 w3-white"
+                        action="/action_page.php" target="_blank">
+                        <div class="w3-section">
+                            <label>Name</label>
+                            <input class="w3-input" type="text" id="name" name="name" required>
+                        </div>
+                        <div class="w3-section">
+                            <label>Email</label>
+                            <input class="w3-input" type="text" id="email" name="email" required>
+                        </div>
+                        <div class="w3-section">
+                            <label>Message</label>
+                            <input class="w3-input" type="text" id="message" name="message" required>
+                        </div>
+                        <input class="w3-check" type="checkbox" id="bug" name="bug">
+                            <label>Is this a bug report?</label>
+                            <button id="send" type="submit" class="w3-button w3-right w3-theme">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-32 w3-center w3-theme-l1">
+        <h4>Follow Us</h4>
+        <a class="w3-button w3-large w3-teal" href="https://twitter.com/Salemm1977" target="_blank" title="Twitter"><em
+                class="fa fa-twitter"></em></a>
+        <p></p>
+
+        <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+            <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+            <a class="w3-button w3-theme" href="#myPage">
+                <span class="w3-xlarge">
+                    <em class="fa fa-chevron-circle-up"></em>
+                </span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Used to toggle the menu on smaller screens when clicking on the menu button
+        function openNav() {
+            var x = document.getElientById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</body>
+
+</html>
